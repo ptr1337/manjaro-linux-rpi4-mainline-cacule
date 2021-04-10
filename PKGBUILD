@@ -24,7 +24,7 @@ source=("https://github.com/raspberrypi/linux/archive/${_commit}.tar.gz"
         '90-linux.hook')
 
 md5sums=('f60679863eb897ade6d0b70115e2073d'
-         '7d7d792a46999891d3ad9fafdd92e965'
+         'e11a8c903f4740e546f3af97673b7289'
          'b85d9c75a137a4278537386ca274da9d'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
@@ -41,7 +41,7 @@ prepare() {
 
   # don't run depmod on 'make install'. We'll do this ourselves in packaging
   sed -i '2iexit 0' scripts/depmod.sh
-  
+
   patch -Np1 -i ../cacule-5.11.patch
 }
 
@@ -82,7 +82,7 @@ _package() {
   provides=('kernel26' "linux=${pkgver}")
   conflicts=('kernel26' 'linux' 'uboot-raspberrypi')
   install=${pkgname}.install
-  replaces=('linux-raspberrypi-latest')
+  replaces=('linux-raspberrypi-latest' 'linux-raspberrypi-mainline')
 
   cd "${srcdir}/${_srcname}"
 
@@ -141,7 +141,7 @@ _package-headers() {
   pkgdesc="Header files and scripts for building modules for linux kernel - ${_desc}"
   provides=("linux-headers=${pkgver}")
   conflicts=('linux-headers')
-  replaces=('linux-raspberrypi-latest-headers')
+  replaces=('linux-raspberrypi-latest-headers' 'linux-raspberrypi-mainline-headers')
 
   cd ${_srcname}
   local _builddir="${pkgdir}/usr/lib/modules/${_kernver}/build"

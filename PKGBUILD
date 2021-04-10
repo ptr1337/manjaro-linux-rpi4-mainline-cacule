@@ -3,14 +3,16 @@
 # Contributor: Oleg Rakhmanov <oleg@archlinuxarm.org>
 # Maintainer: Dan Johansen <strit@manjaro.org>
 # Maintainer: Ray Sherwin <slick517d@gmail.com>
+# Maintainer: ptr1337 <admin@ptr1337.dev>
 
-pkgbase=linux-rpi4-mainline-cacule
+pkgbase=linux-manjaro-rpi4-mainline-cacule
 _commit=42498e202032b40765d184c1b9cb296dbe7fa614
 _srcname=linux-${_commit}
 _kernelname=${pkgbase#linux}
 _desc="Raspberry Pi 4 64-bit mainline with cacule scheduler"
 pkgver=5.11.11
 pkgrel=1
+pkgdesc="Raspberry Pi 4 Kernel with the cacule scheduler"
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
